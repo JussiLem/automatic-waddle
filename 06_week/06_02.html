@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player's Age</title>
+</head>
+<script type="text/javascript">
+
+  function checkAge() {
+    var age = document.getElementById("age").value;
+
+    if (age < 18) {
+      var output = "Adolescents are not allowed to play."
+      document.getElementById("answer").innerHTML = output;
+    } else {
+      var output2 = "Old enough to play"
+      document.getElementById("answer").innerHTML = output2;
+    }
+  }
+</script>
+<body>
+<h3>Player's Age</h3>
+<form>
+    <label>Age: </label> <input type="text" name="age" id="age" size="3">
+    <input type="button" value="Check age" onClick="checkAge()">
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>

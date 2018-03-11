@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Car Share</title>
+    <style type="text/css">
+        label {
+            display: block;
+            width: 6em;
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+      function calculateCosts() {
+
+        let kilometers = document.getElementById("kilometers").value;
+        let consumption = document.getElementById("consumption").value;
+        let price = document.getElementById("price").value;
+        let participants = document.getElementById("participants").value;
+        let Costs = (consumption/100.0*price*kilometers/participants);
+
+        document.getElementById("answerId").innerHTML=Costs;
+        //TODO
+      }
+    </script>
+</head>
+<body>
+<h3>Car Share</h3>
+<form>
+    <p>
+        <label>Kilometers: </label> <input type="text" name="kilometers"
+                                           id="kilometers" size="6">
+    </p>
+    <p>
+        <label>Consump.l/km: </label> <input type="text" name="consumption" id="consumption" size="6">
+    </p>
+    <p>
+        <label>Price e/l: </label>  <input type="text" name="price"
+                                           id="price" size="6">
+    </p>
+    <p>
+        <label>Participants: </label> <input type="text" name="participants" id="participants"
+                                             size="6">
+    </p>
+    <p>
+        <input type="button" value="Calculate costs" onClick="calculateCosts()">
+    </p>
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answerId"></div>
+</body>
+</html>

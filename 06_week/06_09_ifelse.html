@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Infraction fine </title>
+
+    <script>
+      function tellInfractionFine() {
+        let speed = document.getElementById("drivingSpeed").value;
+        let limit = document.getElementById("speedLimit").value;
+        let total = speed - limit;
+        const noSpeed = "No speeding, no fine."
+        const slightSpeed = "Infraction fine is 85 euros.";
+        const littleSpeed = "Infraction fine is 115 euros.";
+        const bitSpeed = "Infraction fine is 70 euros.";
+        const hundraEuro = "Infraction fine is 100 euros.";
+        const income = "Income-based unit fine.";
+
+        if      (total <= 0)
+          document.getElementById("answer").innerHTML = noSpeed;
+        else if (limit >= 10 && limit <= 60 && total <= 15)
+          document.getElementById("answer").innerHTML = slightSpeed;
+        else if (limit >= 10 && limit <= 60 && total > 15 && total < 20)
+          document.getElementById("answer").innerHTML = littleSpeed;
+        else if (limit >= 70 && limit <= 120 && total <= 15)
+          document.getElementById("answer").innerHTML = bitSpeed;
+        else if (limit >= 70 && limit <= 120 && total > 15 && total < 20)
+          document.getElementById("answer").innerHTML = hundraEuro;
+        else if (limit > 20)
+          document.getElementById("answer").innerHTML = income;
+      }
+    </script>
+</head>
+<body>
+<h3>Infraction fine </h3>
+
+<form>
+    <p>
+        <label>Driving Speed: </label> <input type="text" name="drivingSpeed" id="drivingSpeed"
+                                              size="3">
+    </p>
+    <p>
+        <label>Speed limit: </label> <input type="text" name="speedLimit"
+                                            id="speedLimit" size="3">
+    </p>
+    <p>
+        <input type="button" value="Tell about the ticket" onClick="tellInfractionFine()">
+    </p>
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>
+
+<!-- test example:
+drivingSpeed = 120, speedLimit = 120 -> No speeding, no fine
+drivingSpeed = 65, speedLimit = 60 -> Infraction fine is 85 euros.  
+drivingSpeed = 77, speedLimit = 60 -> Infraction fine is 115 euros.
+drivingSpeed = 105, speedLimit = 100 -> Infraction fine is 70 euros.  
+drivingSpeed = 117, speedLimit = 100 -> Infraction fine is 100 euros.
+drivingSpeed = 121, speedLimit = 100 -> Income-based unit fines.
+-->
+
+         

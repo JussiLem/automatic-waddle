@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Body Mass Index (BMI)</title>
+
+    <script type="text/javascript">
+      function calculateBMI() {
+        var weight =
+          document.getElementById('weight').value;
+        var height =
+          document.getElementById("height").value;
+
+        var bmi = weight / (height / 100.0 * height / 100.0);
+
+        var text;
+
+        if (bmi < 18.5) {
+            text = "Weight less than normal weight";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            text = "Normal weight";
+        } else {
+          text = "Overweight";
+        }
+
+        document.getElementById("answer").innerHTML = text;
+        }
+
+            //TODO
+
+    </script>
+</head>
+<body>
+<h3>Body Mass Index (BMI)</h3>
+
+<form>
+    <p>
+        <label>Weight: </label> <input type="text" name="weight" id="weight"
+                                       size="3"> kg
+    </p>
+    <p>
+        <label>Height: </label> <input type="text" name="height" id="height"
+                                       size="3"> cm &nbsp;&nbsp;&nbsp;
+    </p>
+    <p>
+        <input type="button" value="Calculate BMI" onClick="calculateBMI()">
+    </p>
+</form>
+
+<div id="answer"></div>
+</body>
+</html>

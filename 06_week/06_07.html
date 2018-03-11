@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Grant</title>
+    <style type="text/css">
+        label {
+            display: block;
+            width: 6em;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+
+      function showStudyGrant() {
+        var age =
+          document.getElementById("age").value;
+        var withParents =
+          document.getElementById("withParents").value;
+
+        var studyGrant;
+
+        if(age >= 20 && withParents == "n") {
+          studyGrant = 335.2;
+        } else if (age >= 20 && withParents =="y"){
+          studyGrant = 136.7;
+        } else {
+          studyGrant = "Ask Kela";
+        }
+
+        var output = "The study grant is " + studyGrant + " euros";
+        // TODO
+        document.getElementById("answer").innerHTML = output;
+
+      }
+    </script>
+</head>
+<body>
+<h3>Study Grant</h3>
+
+<form>
+    <p>
+        <label>Age: </label> <input type="text" name="age" id="age" size="3">
+    </p>
+    <p>
+        <label>With Parents (y/n): </label> <input type="text" name="withParents"
+                                                   id="withParents" size="1">
+    </p>
+    <input type="button" value="Show Study Grant" onClick="showStudyGrant()">
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>
+
+
+<!-- test example:
+age = 20, withParents = n -> studyGrant= 335.20 euros
+age = 20, withParents = y ->  studyGrant= 136.70 euros
+age = 18, withParents = y -> studyGrant=Ask Kela
+-->

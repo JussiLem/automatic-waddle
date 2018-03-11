@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Package Comparison</title>
+    <script>
+
+      function comparePackages() {
+        // assign input field values into a variables
+        let callTime
+        let textMessages
+        textMessages = document.getElementById(`textMessages`).value
+        callTime = document.getElementById(`callTime`).value
+        // calculate the costs of the Special Package
+        const allIn = 29.9;
+        let specialPackage = 19.90 + 0.069 * callTime + 0.069 + textMessages;
+        if (specialPackage < allIn) {
+          let output = `The special package is ${Math.round(specialPackage)} € cheaper than the All-inclusive package(${allIn} €).`
+          document.getElementById("answer").innerHTML = output;
+        } else {
+          let output2 = `The all-inclusive package (${allIn} €) is cheaper than the Special package(${Math.round(specialPackage)} €).`
+          document.getElementById("answer").innerHTML = output2;
+        }
+      }
+    </script>
+</head>
+<body>
+<h3>Package Comparison</h3>
+
+<form>
+    <p>
+        <label>Text messages: </label> <input type="text" name="textMessages"
+                                              id="textMessages" size="3"> pcs
+    </p>
+    <p>
+        <label>Call time: </label> <input type="text" name="callTime"
+                                          id="callTime" size="3"> min
+    </p>
+    <p>
+        <input type="button" value="Compare Packages" onClick="comparePackages()">
+    </p>
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>
+
+<!-- test example:
+textMessages  = 20 , callTime=30-> costs=23.35 euros (Special Package)
+textMessages  = 100 , callTime=150-> costs=37.15 euros (Special Package)
+-->

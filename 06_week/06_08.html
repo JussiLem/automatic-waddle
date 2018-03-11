@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+
+    <script>
+      function play() {
+        // Read value from the input field
+        let bet = document.getElementById("bet").value;
+        // Randomize dice pips between 1-6
+        let pips = 1 + Math.round(Math.random() *5);
+        switch (pips)
+        {
+          case 1:
+          case 3:
+          case 5:
+          document.getElementById("answer").innerHTML = `You win 0.`;
+            break;
+          case 2:
+          case 4:
+            document.getElementById("answer").innerHTML = `You win ${bet * 1.25}`;
+            break;
+          default:
+            document.getElementById("answer").innerHTML = `You win ${bet * 1.50}`;
+            break;
+        }
+        console.log(`You got ${pips} `);
+
+      }
+    </script>
+</head>
+<body>
+<h3>Game</h3>
+
+<form>
+    <label>Bet: </label>
+    <input type="text" name="bet" id="bet" size="3">
+    <input type="button" value="Play" onClick="play()">
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>
+
+<!-- test example:
+bet = x, pips = 1 or 3 or 5 -> no pay
+bet = 2, pips = 2 or 4 -> paidBack = 2.50
+bet = 2, pips = 6 -> paidBack = 3.00
+-->
