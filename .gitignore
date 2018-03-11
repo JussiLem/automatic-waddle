@@ -8,5 +8,10 @@ node_modules
 .DS_Store
 
 # temporary files
-#.tmp
+*.tmp
 *~
+
+README.md
+
+npm-debug.log
+*.log
