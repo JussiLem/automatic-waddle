@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice</title>
+    <style type="text/css">
+        #dice {
+            font-family: 'Verdana';
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+<body>
+<button onclick="rollTheDice()">ROLL THE DICE</button>
+<script>
+  function randomInteger(from, to) {
+    // Return randomizedNumber between 'from' and 'to'.
+    return Math.floor(Math.random() *to) + from;
+  }
+
+  function rollTheDice() {
+    var diceValue = randomInteger(1, 6);
+    // Call the function randomInteger(from, to) with parameter values 1 and 6.
+    // Assign the return value of the function to the variable.
+    //Insert the value of the variable diceValue into the HTML div element whose id is 'dice'.
+
+    document.getElementById("dice").innerHTML = diceValue;
+  }
+</script>
+<div id="dice"></div>
+
+</body>
+</html>

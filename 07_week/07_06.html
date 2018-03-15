@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Kela reimbursement</title>
+    <style type="text/css">
+        label {
+            display: block;
+            width: 10em;
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+      // Define a function (1.),
+        const calckelaKorvaus = (length) => {
+            let tulos = 0;
+            if (length < 10){
+                tulos = 8;
+            } else if (length <= 20) {
+                tulos = 11;
+            } else if (length < 30) {
+                tulos = 13,5;
+            } else if (length <= 45) {
+                tulos = 16,5;
+            } else if (length <= 60) {
+                tulos = 21;
+            } else if (length > 60) {
+                tulos = 21;
+            }else {
+                tulos = 0;
+            }
+            return tulos;
+        };
+
+      // Define a function (2.)
+      function calcCustomerPays (doctorsFee, kelaKorvaus) {
+        return doctorsFee - kelaKorvaus;
+      }
+
+
+      // Define a function (3.)
+      function calculate() {
+        // Read values from the input fields
+        let length = parseInt(document.getElementById("length").value);
+        let doctorsFee = parseFloat(document.getElementById("doctorsFee").value);
+        // Call the function (1.) which calculates Kela reimbursement
+        let kelaKorvaus = calckelaKorvaus(length);
+
+        const officeFee = 15.90;
+        // Call the function (2.) which calculates amount left for the customer to pay
+
+        let customerPays = calcCustomerPays(doctorsFee, kelaKorvaus);
+        customerPays = customerPays + officeFee;
+        // Write the answer on the page, to the answer div, as content of the div
+        let output = `Doctor's Fee is ${doctorsFee} euros`;
+        output += `Kela reimbursement is ${kelaKorvaus} euros`
+        output += `Office fee is ${officeFee}`
+        output += `Customer needs to pay ${customerPays} euros`
+        document.getElementById("answer").innerHTML = output;
+
+      }
+    </script>
+</head>
+<body>
+<h3>Kela reimbursement</h3>
+
+<form>
+    <p>
+        <label>Length of the visit: </label> <input type="text" name="length" id="length"
+                                                    size="3"> min
+    </p>
+    <p>
+        <label>Doctor’s Fee </label> <input type="text" name="doctorsFee"
+                                            id="doctorsFee" size="8"> euros
+    </p>
+    <p>
+        <input type="button" value="Calculate" onClick="calculate()">
+    </p>
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>
+
+<!-- test example:
+length = 21, doctorsFee = 69 -> Doctor’s Fee 69.00 euros 
+						Kela reimbursement 13.50 euros
+						Office Fee 15.90 euros
+						Customer needs to pay 71.40 euros
+-->

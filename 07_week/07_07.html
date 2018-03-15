@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>String</title>
+
+    <script type="text/javascript">
+      function processName() {
+
+        // read value of name from the input field
+        let name = document.getElementById("name").value;
+        // show it with "ALL CAPS" using toUpperCase()
+            let nameUpperCase = name.toUpperCase();
+        // show it with  "all small letters" using toLowerCase()
+            let nameLowerCase = name.toLowerCase();
+        // tell how many characters are there (length, includes also all spaces)
+            let charCount = name.length;
+
+        // tell, whether the input string contains the word 'muumi'
+            let n =name.indexOf("muumi");
+
+            if (n ===  -1) {
+              n = "Doesn't contain muumi";
+            } else if (n >= 0) {
+              n = "Contains the text muumi";
+        }
+        // tell the first character using charAt()
+            let firstChar = name.charAt(0);
+        // tell which ones are the first three characters using substr().
+            let first3Char = name.substr(0, 3);
+            let output = `With... ${nameUpperCase}`
+            let output2 = `With... ${nameLowerCase}`
+            let output3 = `Char... ${charCount}`
+            let output4 = + n;
+            let output5 = `First... ${firstChar}`
+            let output6 = `First three... ${first3Char}`;
+
+            document.getElementById("upperCase").innerHTML = output;
+            document.getElementById("lowerCase").innerHTML = output2;
+            document.getElementById("length").innerHTML = output3;
+            document.getElementById("contains").innerHTML = output4;
+            document.getElementById("firstCharacter").innerHTML = output5;
+            document.getElementById("manyCharacters").innerHTML = output6;
+      }
+    </script>
+</head>
+<body>
+<h3>String</h3>
+
+<form>
+    <label>Name: </label> <input type="text" name="name" id="name">
+    &nbsp;&nbsp;&nbsp; <input type="button" value="Show"
+                              onClick="processName()">
+
+</form>
+
+<div id="upperCase"></div>
+<div id="lowerCase"></div>
+<div id="length"></div>
+<div id="contains"></div>
+<div id="firstCharacter"></div>
+<div id="manyCharacters"></div>
+</body>
+</html>
+
+<!-- test example:
+name = Matti Majava -> 	With upper case letters: MATTI MAJAVA
+						With lower case letters: matti majava
+						Character count: 12
+						Doesn’t contain the text muumi.
+						First character: M
+						First three characters: Mat
+-->
