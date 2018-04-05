@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lottery</title>
+</head>
+<body>
+<h3>Lottery</h3>
+
+<form>
+    <p>
+        <label>Name: </label> <input type="text" name="name" id="name" size="15">
+        <input type="button" value="Add" onClick="addName()">
+        <input type="button" value="Make the draw" onClick="makeDraw()">
+    </p>
+</form>
+<!-- This is the target where the JavaScript will write the names -->
+<div id="nameList"></div>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+
+<script src="es6/09_08.js"></script>
+</body>
+</html>
+
+<!-- test example:
+name = Maija , action = Add -> Inserted names: Maija   (+ no 'Winner is X'-text)
+... name = Leena, action= Add ,  -> Inserted names: Maija , Leena   (+ no 'Winner is X'-text)
+... name = Minna, action= Add , action = Make the draw > Inserted names: Maija , Leena, Matti, Pekka, Jukka,Paavo, Minna    Winner is Leena (Randomized).
+-->
