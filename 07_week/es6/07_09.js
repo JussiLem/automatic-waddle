@@ -1,25 +1,26 @@
+"use strict";
 function tellAge() {
-	let yearOfBirth = document.getElementById("yearOfBirth").value;
 	// Read value of yearOfBirth from the input field
-	// let ageDifMs = Date.now() - yearOfBirth.getTime();
+	let yearOfBirth = document.getElementById("yearOfBirth").value;
+
 	// Figure out the current date into today variable
-	// let ageDate = new Date(ageDifMs);
+	let today = new Date();
+	let year = today.getFullYear();
 	// Use getFullYear() method to get the current year out from the today variable
-	// return Math.abs(ageDate.getUTCFullYear);
+
 	// Calculate the (rough estimate of the) age
-	let age = today.getUTCFullYear()-yearOfBirth;
+	let age = year - yearOfBirth;
 	let message;
 	// If age is less than zero
 	if (age < 0) {
 		//  Show an error message
 		message = "please input real birthday.";
 	} else {
-		message = `You are now ${age} years old.`;
-		message = `Current year is ${today.getUTCFullYear()}`;
+		message = "You are now " +age+ " years old.";
+		message += "<br />Current year is" + year +".";
 	}
 	document.getElementById("answer").innerHTML = message;
 	// otherwise
 	// Tell the age
 
 }
-document.getElementById("answer").innerHTML = yearOfBirth;
