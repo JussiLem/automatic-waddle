@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie Clicker</title>
+</head>
+<body>
+    <h1>Cookie Clicker!</h1>
+    <h2>Clicks: <span id="counter">0</span> </h2>
+    <img onclick= "increase()" src="cookie.jpg" width="200px";>
+
+         <script>
+             var clicks = 0;
+             function increase () {
+               clicks ++;
+               document.getElementById("counter").innerHTML = clicks;
+
+               if (clicks > 10){
+                 alert("You've had too many cookies!")
+               }
+             }
+
+
+         </script>
+</body>
+</html>
